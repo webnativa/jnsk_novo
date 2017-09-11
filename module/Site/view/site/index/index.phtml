@@ -1,51 +1,133 @@
-<script src="<?php echo $this->basePath(); ?>/front/js/maps/gmap3.js"></script>         
-   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyANmgVkU2_FlRLVhhgIV8qxwDc_apeNgoY"></script>
+        <div id="main" class="clearfix">
+            <div class="carousel fade-carousel slide slider-home" data-ride="carousel" data-interval="4000"
+                id="bs-carousel">
 
- <!-- Slide Section-->    
-        <div class="tp-banner-container">
-            <div class="tp-banner">
-                <ul>
-                    <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
-                        <div id="map" class="mapping" style="height:700px"></div>
-                    </li>
-                    <?php foreach($this->banners as $banner) {?>
-                        
-                        <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
-                            
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+
+                    <?php 
+                    $count = 0;
+                    foreach($this->banners as $banner) {?>
+                        <li data-target="#bs-carousel" data-slide-to="<?php echo $count ?>" class="<?php if($count == 1) {?>  active <?php }?>"></li>
+                    <?php $count++; } ?>
+                </ol>
+
+                <div class="carousel-inner">
+
+                    <?php 
+                    $count = 0;
+                    foreach($this->banners as $banner) {?>
+                        <div class="item slides <?php if($count == 1) {?>  active <?php }?> ">
+                            <div class="slide-3" style="background-image: url(uploads/banners/<?php echo $banner->getArquivo() ?>?==12); ">
+                                <!-- <div class="clown absolute animated fadeInUp scroll-time2">
+                                    <img src="< ?php echo $this->basePath(); ?>/front/images/bruno_dancando.png" alt="">
+                                </div> -->
+
+                                <div class="container clearfix hero-container">
+                                    <div class="hero col-md-5 col-sm-4 col-xs-12">
+                                        <div class="hgroup">
+                                            <h1 class="animated fadeInDown scroll-time5">
+                                                <?php echo $banner->getNome();  ?>
+                                            </h1>
+                                        </div>
+
                              <?php
                                 
                                 $link = $banner->getLink();
                                 if ($link) {?>
-                                    <a href="<?php echo $banner->getLink(); ?>">
-                                        <img src="/uploads/banners/<?php echo $banner->getArquivo() ?>?==12" width="100%" height="100%"  alt="kenburns6"  data-bgposition="center center" data-kenburns="on" data-duration="25000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="120" data-bgpositionend="center top" />
-                                    </a>
-                                <?php } else { ?>
-                                    <img src="/uploads/banners/<?php echo $banner->getArquivo() ?>?==12" width="100%" height="100%"  alt="kenburns6"  data-bgposition="center center" data-kenburns="on" data-duration="25000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="120" data-bgpositionend="center top" />
-                                <?php } ?>
-                            
-                            <div class="tp-caption large_text lft tp-resizeme"
-                                data-x="0"
-                                data-y="150"
-                                data-speed="500"
-                                data-start="700"
-                                data-easing="Power4.easeOut"
-                                data-splitin="lines"
-                                data-splitout="none"
-                                data-elementdelay="0.1"
-                                data-endelementdelay="0.1"
-                                data-endspeed="100"
-                                style="z-index: 5; max-width: 700px; line-height: 60px; max-height: auto; white-space: normal;">
-                                <?php echo $banner->getNome();  ?>
+                                    <div class="btn-box animated fadeIn scroll-time9 clearfix">
+                                        <a href="<?php echo $banner->getLink(); ?>" class="transparent-btn happykiddo-btn">
+                                        SAIBA MAIS
+                                        </a>
+                                    </div>
+                            <?php } ?>
+                                        
+                                    </div>
+                                </div>
+
+                                
+
                             </div>                        
+                        </div>
+                    <?php $count++; } ?>
 
-                        </li>
-                    <?php }?>
 
-                </ul>
-                <div class="tp-bannertimer"></div>
+                </div>
             </div>
-        </div>
-        <!-- End Slide Section-->
+
+
+            <div class="cta blue-bg clearfix">
+                <div class="container clearfix">
+                    <div class="row-height">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row blue-bg">
+                <div class="container">
+                    <div class="services clearfix">
+                        <div class="col-service col-md-6 col-sm-6 col-xs-12">
+                            <div class="row row-height yellow-bg">
+                                <div class="service-img cover-fix col-height col-md-6 col-sm-6 col-xs-12 clearfix" style="background-image: url('images/jaime_home.png');">
+                                    <div class="mask">
+                                        <a href="http://www.jonosake.com.br/workshop-jaime-aroxa">
+                                            <div class="mask-btn">
+                                              <i class="fa fa-eye" aria-hidden="true"></i>
+                                              <span>Saiba mais</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="service-info col-height col-md-6 col-sm-6 col-xs-12 clearfix">
+                                    <h2><span>Workshop</span> Jaime Arôxa</h2>
+                                    <h4>"Musicalidade e Conexão na Dança de Salão!"<br><br></h4>
+                                    <a href="http://www.jonosake.com.br/workshop-jaime-aroxa" class="transparent-btn happykiddo-btn">SAIBA MAIS</a>
+                                </div>
+                            </div><br><br><br><br>
+                        </div>
+                       <div class="col-service col-md-6 col-sm-6 col-xs-12">
+                            <div class="row row-height blue-bg2">
+                                <div class="service-img cover-fix col-height col-md-6 col-sm-6 col-xs-12 clearfix" style="background-image: url('images/comvoce.png');">
+                                    <div class="mask">
+                                        <a href="http://www.jonosake.com.br/nova-tabela">
+                                            <div class="mask-btn">
+                                              <i class="fa fa-eye" aria-hidden="true"></i>
+                                              <span>Saiba mais</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="service-info col-height col-md-6 col-sm-6 col-xs-12 clearfix">
+                                    <h2><span>Nova tabela</span> de preços</h2>
+                                    <h4>Jonosake, com você em todos os momentos!<br><br></h4>
+                                    <a href="http://www.jonosake.com.br/nova-tabela" class="transparent-btn happykiddo-btn">SAIBA MAIS</a>
+                                </div>
+                            </div><br><br><br><br>
+                        </div>
+ 
+                        
+
+
+<!--                     <div class="cta blue-bg clearfix">
+                        <div class="container clearfix">
+                            <div class="row-height">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-height text-center">
+                                    <h1><i class="fa fa-instagram"></i> #Jonosake</h1>
+
+                                    <h3>Use a HashTag <span>#Jonosake</span> e compartilhe seus momentos no Sítio Jonosake!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                -->                    <!-- END CTA -->
+
+
+</div>
+    </div>
+
+
 
         <!-- box-action -->
         <section class="box-action">
@@ -65,44 +147,6 @@
         </section>
         <!-- End box-action-->
 
-        <!-- Boxes Info -->
-        <section class="content_info">
-            <!-- Parallax Background -->
-            <div class="bg_parallax image_02_parallax"></div>
-            <!-- Parallax Background -->
-
-            <!-- Content Parallax-->
-            <section class="opacy_bg_02 paddings boxes">
-                <div class="container wow fadeInUp">
-                    <div class="row">
-                    <h1>Vídeos</h1><br>
-                        
-                        <?php foreach($this->videos as $video) {?>
-                            <!-- Item Boxes Info -->
-                            <div class="col-md-3">
-                                <div class="boxes-info">
-                                    
-                                    <h5><?php echo $video->getNome() ?></h5>
-                                    <p>
-                                     <a href="<?php echo $this->url('videos_front', array('action' => 'detalhes', 'id' => $video->getId())); ?>">
-                                        <img src="/gestao/bloco-home/imagem?image=videos/<?php echo $video->getImagem(); ?>&x=220&y=220" alt="<?php echo $video->getNome() ?>">
-                                    </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Item Boxes Info -->
-                        <?php }?>
-
-                    </div>
-                    <hr>
-                    <div class="text-center">
-                            <a class="btn btn-primary" href="<?php echo $this->url('videos_front'); ?>"> Veja todos os vídeos </a>
-                    </div>
-                </div> 
-            </section>  
-            <!-- End Content Parallax--> 
-        </section>
-        <!-- End Boxes Info -->
 
         
 
@@ -111,44 +155,8 @@
             <div class="paddings post-testimonials">
                 <div class="container">
                    <div class="row">  
-                        <!-- Post --> 
-                        <div class="col-md-6">
-                            <h3>Calendário de eventos</h3>
-                             <!-- Box -->
-                            <ul class="box">
-
-                                <?php foreach($this->eventos as $evento) {?>
-                                    <!-- Item Post --> 
-                                    <li class="row">
-                                        <!-- Date --> 
-                                        <div class="col-md-3">
-                                            <div class="date"><span><i class="fa fa-calendar-o"></i><?php echo $evento->getMes() ?></span><?php echo $evento->getDia() ?></div>
-                                        </div>
-                                        <!-- End Date --> 
-                                        <div class="col-md-7">
-                                            <div class="info">
-                                                <h4><?php echo $evento->getNome() ?></h4>
-                                                <p><?php echo $evento->getDescricao() ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="link">
-                                            <a href="<?php echo $this->url('eventos_front', array('action' => 'detalhes', 'id' => $evento->getId())); ?>" title="Read More"><i class="fa fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- End Item Post -->
-                                <?php }?>
-
-                            </ul>
-                            <!-- End Box -->
-                            <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
-
-                        </div>
-                        <!-- End Post --> 
-
                         <!-- Testimonial --> 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <h3>Últimas notícias</h3>
                             <!-- Box -->
                             <ul class="box">
@@ -195,106 +203,38 @@
         </section>
         <!-- End post-testimonials -->
 
-         <!-- box-action -->
-         <section class="box-action">
-            
-            <div class="container">
-                <div class="title">
-                    <h1 style="color:#fff">Cotações</h1>
-                </div>
-            </div>
-            
-        </section>
-        <!-- End box-action-->
 
 
-        <section class="content_info">
-            <div class="paddings post-testimonials">
-                <div class="container">
-                   <div class="row">  
-                        <!-- Post --> 
-                        <div class="col-md-6">
-                            
-                             <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
-<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=198&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
-<hr>
 
+            <div class="section-info steps-section section-padding paddingt-0 row-height text-center clearfix">
 
-<!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
-<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=115&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
-                        </div>
-                        <!-- End Post --> 
+                <!-- <div class="second-row clearfix">
 
-                        <!-- Testimonial --> 
-                        <div class="col-md-6">
-                            <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
-<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=93&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
-                            <hr>
-                            <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
-<!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
-<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=122&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
-                        </div>
-
-                        <!-- End Testimonial --> 
-                   </div>  
-
-                   <hr>
-                   <div class="text-center">
-                            <a class="btn btn-primary" href="/instituicao/cotacoes/"> Veja todas as cotações </a>
-                    </div>              
-                </div>
-            </div>
-        </section>
-
-        <script type="text/javascript">
-        var imagens = [];
-        <?php foreach($this->cooperativas as $cooperativa) {?>
-            imagens[<?= $cooperativa->getId() ?>] = '<img src="/gestao/bloco-home/imagem?image=cooperativas/<?php echo $cooperativa->getImagem(); ?>&x=150&y=150" alt="<?php echo $cooperativa->getNome() ?>">';
-        <?php }?>
-        
-        var mapMarkers = [
-            <?php foreach($this->cooperativas as $cooperativa) {?>
-            {
-                address: "<?= $cooperativa->getEndereco() ?>",
-                html: imagens[<?= $cooperativa->getId() ?>] + "<br><br><a href='<?php echo $this->url('consorciadas_front', array('action' => 'detalhes', 'id' => $cooperativa->getId())); ?>'>+ Veja mais detalhes</a>",
-                icon: {
                     
-                    image: "<?php echo $this->basePath(); ?>/front/img/pin.png",
-                    iconsize: [26, 46],
-                    iconanchor: [12, 46]
-                }
-            },
-        <?php }?>
-        
-        ];
+                    <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                    <iframe src="https://snapwidget.com/embed/383636" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
 
-        // Map Initial Location
-        var initLatitude = -19.9166813;
-        var initLongitude = -43.9344931;
+                </div> -->
 
-        // Map Extended Settings
-        var mapSettings = {
-            controls: {
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: true,
-                streetViewControl: true,
-                overviewMapControl: true
-            },
-            scrollwheel: false,
-            markers: mapMarkers,
-            //latitude: initLatitude,
-            //longitude: initLongitude,
-            zoom: 6
-        };
-        
-        $("#map").gMap(mapSettings);
 
-        // Map Center At
-        var mapCenterAt = function(options, e) {
-            e.preventDefault();
-            $("#map").gMap("centerAt", options);
-        }
+                <div class="first-row clearfix">
+                    <div class="container">
+                        <div class="row-height">
+                            <div class="steps-info col-height col-md-12">
+                                <h1>O SEU DIA É MAIS FELIZ AQUI!</h1>
 
-    </script>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
