@@ -1,0 +1,300 @@
+<script src="<?php echo $this->basePath(); ?>/front/js/maps/gmap3.js"></script>         
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyANmgVkU2_FlRLVhhgIV8qxwDc_apeNgoY"></script>
+
+ <!-- Slide Section-->    
+        <div class="tp-banner-container">
+            <div class="tp-banner">
+                <ul>
+                    <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
+                        <div id="map" class="mapping" style="height:700px"></div>
+                    </li>
+                    <?php foreach($this->banners as $banner) {?>
+                        
+                        <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
+                            
+                             <?php
+                                
+                                $link = $banner->getLink();
+                                if ($link) {?>
+                                    <a href="<?php echo $banner->getLink(); ?>">
+                                        <img src="/uploads/banners/<?php echo $banner->getArquivo() ?>?==12" width="100%" height="100%"  alt="kenburns6"  data-bgposition="center center" data-kenburns="on" data-duration="25000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="120" data-bgpositionend="center top" />
+                                    </a>
+                                <?php } else { ?>
+                                    <img src="/uploads/banners/<?php echo $banner->getArquivo() ?>?==12" width="100%" height="100%"  alt="kenburns6"  data-bgposition="center center" data-kenburns="on" data-duration="25000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="120" data-bgpositionend="center top" />
+                                <?php } ?>
+                            
+                            <div class="tp-caption large_text lft tp-resizeme"
+                                data-x="0"
+                                data-y="150"
+                                data-speed="500"
+                                data-start="700"
+                                data-easing="Power4.easeOut"
+                                data-splitin="lines"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                data-endspeed="100"
+                                style="z-index: 5; max-width: 700px; line-height: 60px; max-height: auto; white-space: normal;">
+                                <?php echo $banner->getNome();  ?>
+                            </div>                        
+
+                        </li>
+                    <?php }?>
+
+                </ul>
+                <div class="tp-bannertimer"></div>
+            </div>
+        </div>
+        <!-- End Slide Section-->
+
+        <!-- box-action -->
+        <section class="box-action">
+            <form method="post" action="<?php echo $this->url('noticias_front', array('action' => 'news-letter')) ?>">
+            <div class="container">
+                <div class="title">
+                    <p class="lead">Receba nossas noticias por e-mail!</p>
+                </div>
+                <div class="button">
+                    <input type="text" required name="nome" placeholder="Nome">
+                    <input type="email" required name="email" placeholder="E-mail">
+                    <input type="submit" class="enviar" name="Enviar" value="Enviar">
+                </div>
+            </div>
+            </form>
+
+        </section>
+        <!-- End box-action-->
+
+        <!-- Boxes Info -->
+        <section class="content_info">
+            <!-- Parallax Background -->
+            <div class="bg_parallax image_02_parallax"></div>
+            <!-- Parallax Background -->
+
+            <!-- Content Parallax-->
+            <section class="opacy_bg_02 paddings boxes">
+                <div class="container wow fadeInUp">
+                    <div class="row">
+                    <h1>Vídeos</h1><br>
+                        
+                        <?php foreach($this->videos as $video) {?>
+                            <!-- Item Boxes Info -->
+                            <div class="col-md-3">
+                                <div class="boxes-info">
+                                    
+                                    <h5><?php echo $video->getNome() ?></h5>
+                                    <p>
+                                     <a href="<?php echo $this->url('videos_front', array('action' => 'detalhes', 'id' => $video->getId())); ?>">
+                                        <img src="/gestao/bloco-home/imagem?image=videos/<?php echo $video->getImagem(); ?>&x=220&y=220" alt="<?php echo $video->getNome() ?>">
+                                    </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- End Item Boxes Info -->
+                        <?php }?>
+
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                            <a class="btn btn-primary" href="<?php echo $this->url('videos_front'); ?>"> Veja todos os vídeos </a>
+                    </div>
+                </div> 
+            </section>  
+            <!-- End Content Parallax--> 
+        </section>
+        <!-- End Boxes Info -->
+
+        
+
+        <!-- post-testimonials -->
+        <section class="content_info">
+            <div class="paddings post-testimonials">
+                <div class="container">
+                   <div class="row">  
+                        <!-- Post --> 
+                        <div class="col-md-6">
+                            <h3>Calendário de eventos</h3>
+                             <!-- Box -->
+                            <ul class="box">
+
+                                <?php foreach($this->eventos as $evento) {?>
+                                    <!-- Item Post --> 
+                                    <li class="row">
+                                        <!-- Date --> 
+                                        <div class="col-md-3">
+                                            <div class="date"><span><i class="fa fa-calendar-o"></i><?php echo $evento->getMes() ?></span><?php echo $evento->getDia() ?></div>
+                                        </div>
+                                        <!-- End Date --> 
+                                        <div class="col-md-7">
+                                            <div class="info">
+                                                <h4><?php echo $evento->getNome() ?></h4>
+                                                <p><?php echo $evento->getDescricao() ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="link">
+                                            <a href="<?php echo $this->url('eventos_front', array('action' => 'detalhes', 'id' => $evento->getId())); ?>" title="Read More"><i class="fa fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- End Item Post -->
+                                <?php }?>
+
+                            </ul>
+                            <!-- End Box -->
+                            <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
+
+                        </div>
+                        <!-- End Post --> 
+
+                        <!-- Testimonial --> 
+                        <div class="col-md-6">
+                            <h3>Últimas notícias</h3>
+                            <!-- Box -->
+                            <ul class="box">
+                                
+                                <?php foreach($this->noticias as $noticia) {?>
+                                    <!-- Item testimonial --> 
+                                    <li class="row">
+                                        <!-- Date --> 
+                                        <div class="col-md-3">
+                                            <div class="photo">
+                                                
+                                                <?php if($noticia->getImagem()) {?>
+                                                        <a href="<?php echo $this->url('noticias_front', array('action' => 'detalhes', 'id' => $noticia->getId())); ?>">
+                                                            <img src="/gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem(); ?>&x=380&y=470" alt="<?php echo $noticia->getNome() ?>">
+                                                        </a>
+                                                <?php }?>
+                                            </div>
+                                        </div>
+                                        <!-- End Date --> 
+                                        <div class="col-md-9">
+                                            <div class="name">
+                                                <h4>
+                                                    <?php echo $noticia->getNome() ?>
+                                                </h4>                                        
+                                            </div>
+                                            <p>
+                                                <?php echo $noticia->getDescricao() ?>
+                                            </p>
+                                        </div>
+                                    </li>
+                                <?php }?>
+                              
+                            </ul>
+                            <!-- End Box -->
+
+                            
+
+                        </div>
+
+                        <!-- End Testimonial --> 
+                   </div>                
+                </div>
+            </div>
+        </section>
+        <!-- End post-testimonials -->
+
+         <!-- box-action -->
+         <section class="box-action">
+            
+            <div class="container">
+                <div class="title">
+                    <h1 style="color:#fff">Cotações</h1>
+                </div>
+            </div>
+            
+        </section>
+        <!-- End box-action-->
+
+
+        <section class="content_info">
+            <div class="paddings post-testimonials">
+                <div class="container">
+                   <div class="row">  
+                        <!-- Post --> 
+                        <div class="col-md-6">
+                            
+                             <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
+<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=198&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
+<hr>
+
+
+<!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
+<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=115&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
+                        </div>
+                        <!-- End Post --> 
+
+                        <!-- Testimonial --> 
+                        <div class="col-md-6">
+                            <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
+<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=93&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
+                            <hr>
+                            <!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
+<!-- Widgets NotÃ­cias AgrÃ­colas - www.noticiasagricolas.com.br/widgets -->
+<script type="text/javascript" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=122&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=10pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=js"></script>
+                        </div>
+
+                        <!-- End Testimonial --> 
+                   </div>  
+
+                   <hr>
+                   <div class="text-center">
+                            <a class="btn btn-primary" href="/instituicao/cotacoes/"> Veja todas as cotações </a>
+                    </div>              
+                </div>
+            </div>
+        </section>
+
+        <script type="text/javascript">
+        var imagens = [];
+        <?php foreach($this->cooperativas as $cooperativa) {?>
+            imagens[<?= $cooperativa->getId() ?>] = '<img src="/gestao/bloco-home/imagem?image=cooperativas/<?php echo $cooperativa->getImagem(); ?>&x=150&y=150" alt="<?php echo $cooperativa->getNome() ?>">';
+        <?php }?>
+        
+        var mapMarkers = [
+            <?php foreach($this->cooperativas as $cooperativa) {?>
+            {
+                address: "<?= $cooperativa->getEndereco() ?>",
+                html: imagens[<?= $cooperativa->getId() ?>] + "<br><br><a href='<?php echo $this->url('consorciadas_front', array('action' => 'detalhes', 'id' => $cooperativa->getId())); ?>'>+ Veja mais detalhes</a>",
+                icon: {
+                    
+                    image: "<?php echo $this->basePath(); ?>/front/img/pin.png",
+                    iconsize: [26, 46],
+                    iconanchor: [12, 46]
+                }
+            },
+        <?php }?>
+        
+        ];
+
+        // Map Initial Location
+        var initLatitude = -19.9166813;
+        var initLongitude = -43.9344931;
+
+        // Map Extended Settings
+        var mapSettings = {
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: true,
+                streetViewControl: true,
+                overviewMapControl: true
+            },
+            scrollwheel: false,
+            markers: mapMarkers,
+            //latitude: initLatitude,
+            //longitude: initLongitude,
+            zoom: 6
+        };
+        
+        $("#map").gMap(mapSettings);
+
+        // Map Center At
+        var mapCenterAt = function(options, e) {
+            e.preventDefault();
+            $("#map").gMap("centerAt", options);
+        }
+
+    </script>

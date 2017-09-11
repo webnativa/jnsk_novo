@@ -1,0 +1,89 @@
+<section class="col-xs-12 col-sm-12 col-md-12 conteudo-internas">
+    <div class="container">
+
+        <div class="col-xs-12 col-sm-3 col-md-3 conteudo-lateral">
+            <ul class="menu-lateral">
+                <li><a href="<?php echo $this->url('ccgc', array('action' => 'projeto', 'slug' => $this->projeto->getSlug())); ?>" ><?php echo $this->projeto->getNome() ?></a></li>
+
+                <?php foreach ($this->nucleos as $item) { ?>
+                    <li><a href="<?php echo $this->url('ccgc', array('action' => 'nucleo', 'slug' => $item->getSlug())); ?>" ><?php echo $item->getNome() ?></a></li>
+                <?php } ?>
+
+                <li><a href="<?php echo $this->url('equipe_front', array('action' => 'equipe', 'slug' => $this->projeto->getSlug())); ?>" class="active" style="color: #F60935">Equipe</a></li>
+            </ul>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-8 col-md-8 conteudo">
+
+            <div class="equipe-lista">
+                <h2> Corporativo</h2>
+
+                <?php foreach ($this->ccgc_cooportativo as $membro) { ?>
+                    <div class="col-xs-12 col-sm-4 col-md-4 equipe">
+
+
+                        <img src="/gestao/bloco-home/imagem?image=equipe/<?php echo $membro->getImagem(); ?>&x=160&y=160" class="img-circle"> 
+                        <div class="clearfix visible-xs"></div>
+                        <h4><?php echo $membro->getNome(); ?></h4>
+                        <span class="cargo"><?php echo $membro->getDescricao(); ?></span><br><br>
+
+                        <span class="nucleo">
+                            <?php echo $membro->getTexto(); ?>
+                        </span>
+                        <br>
+
+                        <?php if ($membro->getEmail() && $membro->getMemail()) { ?>
+                            <a href="mailto:<?php echo $membro->getEmail(); ?>">
+                                <?php echo $membro->getEmail(); ?></a>
+                            <br>
+                        <?php } ?>
+                        <?php if ($membro->getMtelefone()) { ?>
+                            <span class="telefone"><?php echo $membro->getNucleo()->getTelefone(); ?></span>
+                        <?php } ?>
+                    </div>
+                
+                
+                <?php } ?>
+
+
+                <h2><?php echo $this->projeto->getNome() ?></h2>
+
+                <?php 
+                $i = 1;
+                foreach ($this->membros as $membro) { ?>
+                    
+                <div class="col-xs-12 col-sm-4 col-md-4 equipe">
+                        <img src="/gestao/bloco-home/imagem?image=equipe/<?php echo $membro->getImagem(); ?>&x=160&y=160" class="img-circle"> 
+                        <div class="clearfix visible-xs"></div>
+                        <h4><?php echo $membro->getNome(); ?></h4>
+
+                        <span class="cargo"><?php echo $membro->getDescricao(); ?></span><br><br>
+
+                        <span class="nucleo">Núcleo: <strong><?php echo $membro->getNucleo()->getNome(); ?></strong></span>
+                        <br>
+                        <span class="nucleo">
+                            <?php echo $membro->getTexto(); ?>
+                        </span>
+                        <br>
+                        <br><br>
+
+                        <?php if ($membro->getEmail() && $membro->getMemail()) { ?>
+                            <a href="mailto:<?php echo $membro->getEmail(); ?>">
+                                <?php echo $membro->getEmail(); ?></a>
+                            <br>
+                        <?php } ?>
+                        <?php if ($membro->getMtelefone()) { ?>    
+                            <span class="telefone"><?php echo $membro->getNucleo()->getTelefone(); ?></span>
+                        <?php } ?>
+                    </div>
+                    <?php if($i % 3 == 0) {?>
+                        <div class="clearfix"></div>
+                    <?php } ?>
+                <?php $i++;} ?>
+
+
+            </div>
+        </div>
+    </div>
+</section>

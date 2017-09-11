@@ -1,0 +1,65 @@
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Notícia
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+
+<article class="post">
+<h2><a href="#"><?php echo $noticia->getNome(); ?></a></h2>
+<?php if($noticia->getImagem()) {?>
+    <div class="post-image">
+        <img src="/gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem(); ?>&x=800&y=600" alt="<?php echo $noticia->getNome() ?>" class="rounded img_noticia">
+    </div>
+<?php } ?>
+
+<div class="clearfix"></div>
+
+<div class="post-meta">
+<span><i class="fa fa-calendar"></i> <?php echo $noticia->getDataCriacao(); ?> </span>
+</div>
+
+<div class="info-post">
+    
+    <?php echo $noticia->getTexto(); ?>
+</div>
+
+</article>
+
+</div>
+
+<div class="col-md-4 sidebars">
+
+<aside>
+    <h4>Veja também</h4>
+    <ul class="list">
+        <li><i class="fa fa-check"></i><a href="<?php echo $this->url('eventos_front') ?>">Eventos</a></li>
+        <li><i class="fa fa-check"></i><a href="<?php echo $this->url('videos_front') ?>">Vídeos</a></li>
+    </ul>
+</aside>
+
+<hr>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>

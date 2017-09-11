@@ -1,0 +1,61 @@
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Notícia
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+
+<article class="post">
+<h2><a href="#"><?php echo $evento->getNome(); ?></a></h2>
+
+
+<div class="clearfix"></div>
+
+<div class="post-meta">
+<span><i class="fa fa-calendar"></i> <?php echo $evento->getDataCriacao(); ?> </span>
+</div>
+
+<div class="info-post">
+    
+    <?php echo $evento->getTexto(); ?>
+</div>
+
+</article>
+
+</div>
+
+<div class="col-md-4 sidebars">
+
+<aside>
+    <h4>Categories</h4>
+    <ul class="list">
+        <li><i class="fa fa-check"></i><a href="<?php echo $this->url('noticias_front') ?>">Notícias</a></li>
+        <li><i class="fa fa-check"></i><a href="<?php echo $this->url('videos_front') ?>">Vídeos</a></li>
+    </ul>
+</aside>
+
+<hr>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>

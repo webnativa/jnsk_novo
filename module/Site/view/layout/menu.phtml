@@ -1,0 +1,24 @@
+<div class="col-md-2">
+    <ul>
+
+        <li>
+            <a href="<?php echo $this->url('usuarios_front', array('action' => 'documentos')); ?>" <?php if ($this->menu == 'documentos') { ?> class="active" <?php } ?>>Arquivos</a>
+            
+            <ul style="padding-left:5px">
+                
+                <?php foreach($this->categorias as $cat) {?>
+                    <li>
+                        - <a href="<?php echo $this->url('usuarios_front', array('action' => 'documentos')); ?>?q.categoria=<?php echo $cat->getId(); ?>" style="font-size: 14px"> <?php echo $cat->getNome(); ?> </a>
+                    </li>
+                <?php }?>
+                    
+            </ul>
+        </li>
+        <hr>
+        <li><a href="<?php echo $this->url('usuarios_front', array('action' => 'agenda')); ?>" <?php if ($this->menu == 'agenda') { ?> class="active" <?php } ?>>Agenda</a></li>
+        <hr>
+        <li><a href="<?php echo $this->url('usuarios_front', array('action' => 'senha')); ?>" <?php if ($this->menu == 'senha') { ?> class="active" <?php } ?>>Editar Senha</a></li>
+        <hr>
+        <li><a href="<?php echo $this->url('usuarios_front', array('action' => 'sair')); ?>" style="color: red">Sair</a></li>
+    </ul>
+</div>

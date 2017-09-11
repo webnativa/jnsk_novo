@@ -1,0 +1,54 @@
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Intranet
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+
+
+                <?php echo $this->message(); ?>
+                <?php if ($this->erro) { ?>
+                    <div class="alert alert-danger">Usuário ou senha incorretos.</div>
+                <?php } ?>
+                <form action="<?php echo $this->url('usuarios_front', array('action' => 'login')) ?><?php echo $this->carrinho ?>" class="form-login validacao_form" method="post" name="login">
+
+                    <?php
+                    echo $this->formElement($this->form->get('csrf'));
+                    ?>
+
+                    <?php
+                    echo $this->formInput($this->form->get('cpf'));
+                    echo $this->formElementErrors()->render($this->form->get('cpf'));
+                    ?>
+
+                    <?php
+                    echo $this->formInput($this->form->get('senha'));
+                    echo $this->formElementErrors()->render($this->form->get('senha'));
+                    ?>
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <div style="clear: both; margin-left: 10px; padding-top: 10px">    
+                    <a href="<?php echo $this->url('usuarios_front', array('action' => 'recuperar-senha')) ?>">Esqueci minha senha</a>
+
+
+                </div>
+                </div>
+                </div>
+                </div>
+                </section>

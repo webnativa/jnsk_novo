@@ -1,0 +1,70 @@
+<section class="title-section">
+<div class="container">
+
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Cooperativas Associadas
+<span class="line-title"></span>
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+
+<?php echo $this->message(); ?>
+<?php foreach ($this->cooperadas as $cooperada) { ?>
+    <div class="col-md-3">
+        <?php if($cooperada->getImagem()) {?>
+            <a href='<?php echo $this->url('consorciadas_front', array('action' => 'detalhes', 'id' => $cooperada->getId())); ?>'>
+                <img src="/gestao/bloco-home/imagem?image=cooperativas/<?php echo $cooperada->getImagem(); ?>&x=150&y=150" alt="<?php echo $cooperada->getNome() ?>">
+                </a>
+        <?php }?>
+        <hr>
+    </div>
+
+<?php } ?>
+
+<div class="row clearfix col-md-12">
+<br><br><br><br>
+    <?php echo $this->paginationControl($this->cooperadas, 'Sliding', 'partial/paginator', array('route' => 'noticias_front')); ?>
+</div>
+
+</div>
+
+
+<div class="col-md-4 sidebars">
+<aside>
+    <h4>Selecione por região:</h4>
+    <ul class="list">
+        <?php foreach($this->regioes as $regiao) {?>
+
+            <li><i class="fa fa-check"></i>
+                <a href="<?php echo $this->url('consorciadas_front', array('action' => 'regiao', 'id' => $regiao->getId())); ?>">
+                <?= $regiao->getNome() ?>
+                </a>
+            </li>
+        <?php }?>
+    </ul>
+</aside>
+
+<hr>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>

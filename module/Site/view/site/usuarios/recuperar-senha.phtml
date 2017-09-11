@@ -1,0 +1,50 @@
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Recuperar senha
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+<section class="paddings">
+    <div class="container">
+       
+        <div class="col-xs-12 col-sm-8 col-md-8 conteudo">
+            
+          
+            
+            <div class="conteudo-institucional">
+                
+               
+               <div class="col-xs-12 col-sm-10 col-md-10">
+            <div class="fundo-branco">
+                <?php echo $this->message(); ?>
+                <form name="cadastro" method="post" action="<?php echo $this->url('usuarios_front', array('action' => 'recuperar-senha')) ?>" class="form-cadastro forms validacao_form">
+                    <?php echo $this->formElement($this->form->get('csrf')); ?>
+
+                    <legend>Para recuperar sua senha, informe seu e-mail:</legend>
+                    
+                    <div class="metade-left">
+                        <label for="TxtEmail">E-mail <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('email'));
+                        echo $this->formElementErrors()->render($this->form->get('email'));
+                        ?>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Enviar</button>						
+                </form>
+            </div>
+        </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

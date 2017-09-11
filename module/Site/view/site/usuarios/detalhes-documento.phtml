@@ -1,0 +1,45 @@
+
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Documento
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="paddings">
+    <div class="container">
+
+        <?php echo $this->partial('menu', array('menu' => $this->menu, 'categorias' => $this->categorias)); ?>
+
+        <div class="col-xs-12 col-sm-12 col-md-10">
+
+            <div class="conteudo-institucional">
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+
+                    <h2>
+                        <?php echo $this->documento->getNome(); ?>
+                    </h2>
+                    <span class="informacoes">
+                        <?php echo $this->documento->getDataCriacao(); ?>
+                    </span>
+
+                    <?php echo $this->documento->getTexto(); ?>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

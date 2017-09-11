@@ -1,0 +1,89 @@
+<section class="title-section">
+<div class="container">
+
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Vídeos
+<span class="line-title"></span>
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+
+<?php echo $this->message(); ?>
+<?php foreach ($this->videos as $video) { ?>
+<article class="post">
+    <div class="row">
+
+    <div class="col-md-5">
+
+    <div class="post-image">
+
+        <?php if($video->getImagem()) {?>
+                <a href="<?php echo $this->url('videos_front', array('action' => 'detalhes', 'id' => $video->getId())); ?>">
+                    <img src="/gestao/bloco-home/imagem?image=videos/<?php echo $video->getImagem(); ?>&x=300&y=300" alt="<?php echo $video->getNome() ?>">
+                </a>
+        <?php }?>
+    </div>
+
+    </div>
+
+    <div class="col-md-7">
+    <h3>
+    <a href="<?php echo $this->url('videos_front', array('action' => 'detalhes', 'id' => $video->getId())); ?>">
+        <?php echo $video->getNome(); ?>
+    </a>
+    </h3>
+    
+    <div class="row">
+    <div class="col-md-12">
+    <div class="post-meta">
+    <span><i class="fa fa-calendar"></i> <?= $video->getDataCriacao() ?> </span>
+    </div>
+    </div>
+    </div>
+
+    <a class="btn btn-primary" href="<?php echo $this->url('videos_front', array('action' => 'detalhes', 'id' => $video->getId())); ?>">
+    Leia mais ...</a>
+    </div>
+
+    </div>
+</article>
+<?php } ?>
+
+<?php echo $this->paginationControl($this->videos, 'Sliding', 'partial/paginator', array('route' => 'videos_front')); ?>
+
+</div>
+
+
+<div class="col-md-4 sidebars">
+<aside>
+    <h4>Veja Também:</h4>
+    <ul class="list">
+    <li><i class="fa fa-check"></i><a href="<?php echo $this->url('noticias_front') ?>">Notícias</a></li>
+    <li><i class="fa fa-check"></i><a href="<?php echo $this->url('eventos_front') ?>">Eventos</a></li>
+    </ul>
+</aside>
+
+<hr>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>

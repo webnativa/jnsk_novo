@@ -1,0 +1,71 @@
+<div class="col-xs-12 col-sm-12 col-md-12 titulos-internas">
+    <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h3><?php echo $this->titulo ?></h3>
+        </div>
+    </div>
+</div>
+<section class="col-xs-12 col-sm-12 col-md-12 conteudo-internas">
+    <div class="container">
+        <div class="col-xs-12 col-sm-3 col-md-3 conteudo-lateral">
+            <ul class="menu-lateral">
+
+                <li><a href="<?php echo $this->url('ccgc', array('action' => 'projeto', 'slug' => $this->projeto->getSlug())); ?>" <?php if ($this->tela_projeto) { ?> class="active" style="color:<?php echo $this->projeto->getCor() ?>" <?php } ?>><?php echo $this->projeto->getNome() ?></a></li>
+
+                <?php foreach ($this->nucleos as $item) { ?>
+                    <li><a href="<?php echo $this->url('ccgc', array('action' => 'nucleo', 'slug' => $item->getSlug())); ?>" <?php if ($item->getId() == $this->id) { ?> class="active" style="color:<?php echo $item->getProjeto()->getCor() ?>" <?php } ?>><?php echo $item->getNome() ?></a></li>
+                <?php } ?>
+
+                <li><a href="<?php echo $this->url('ccgc', array('action' => 'equipe', 'slug' => $this->projeto->getSlug())); ?>">Equipe</a></li>
+
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 conteudo">
+            <div class="conteudo-institucional">
+
+                <?php if ($this->tela_projeto) { ?>
+                    <?php echo $this->projeto->getTexto(); ?>
+                <?php } else { ?>
+                    <?php echo $this->nucleo->getTexto(); ?>
+                <?php } ?>
+                <div class="equipe-lista">
+                    <h2>Equipe</h2>
+
+                    <?php 
+                    $i = 1;
+                    foreach ($this->membros as $membro) { ?>
+                        <div class="col-xs-12 col-sm-4 col-md-4 equipe">
+
+
+                            <img src="/gestao/bloco-home/imagem?image=equipe/<?php echo $membro->getImagem(); ?>&x=160&y=160" class="img-circle"> 
+                            <div class="clearfix visible-xs"></div>
+                            <h4><?php echo $membro->getNome(); ?></h4>
+                            <span class="cargo"><?php echo $membro->getDescricao(); ?></span><br><br>
+
+                            <span class="nucleo">
+                                <?php echo $membro->getTexto(); ?>
+                            </span>
+                            <br>
+
+                            <?php if ($membro->getEmail() && $membro->getMemail()) { ?>
+                                <a href="mailto:<?php echo $membro->getEmail(); ?>">
+                                    <?php echo $membro->getEmail(); ?></a>
+                                <br>
+                            <?php } ?>
+                            <?php if($membro->getMtelefone()) {?>    
+                                <span class="telefone"><?php echo $membro->getNucleo()->getTelefone(); ?></span>
+                            <?php } ?>
+                        </div>
+                        <?php if($i % 3 == 0) {?>
+                           <div class="clearfix"></div>
+                       <?php } ?>
+                    <?php $i++;} ?>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

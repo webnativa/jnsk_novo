@@ -1,0 +1,140 @@
+
+
+<section class="col-xs-12 col-sm-12 col-md-12 bg-cinza-internas">
+    <div class="container">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 text-right status-user text-uppercase">
+            <p>
+                <a href="<?php echo $this->url('usuarios_front', array('action' => 'editar')) ?>">Editar meus dados</a>
+                |
+                <a href="<?php echo $this->url('usuarios_front', array('action' => 'senha')) ?>">Senha</a>
+            </p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 titulo">
+            <h3>Meus Vouchers</h3>
+        </div>
+        
+        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            
+            <?php echo $this->message(); ?>
+            
+            <div class="table-responsive">
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº Voucher</th>
+                            <th scope="col">Nº do Pedido</th>
+                            <th scope="col">Voucher</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Usado?</th>
+                            <th scope="col">Data</th>
+                            <!--<th scope="col">Vencimento</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->vouchers as $item) { ?>
+                            
+                            <?php 
+                                $pedido = $item->getPedido();
+                                $status_id = $pedido->getStatus()->getId();
+                            ?>
+                        
+                            <tr>
+                                
+                                <td data-title="Voucher">
+                                    
+                                    <?php
+                                        if($status_id == 4 || $status_id == 1){?>
+                                        <?php echo $item->getId(); ?>
+                                    <?php } else {?>
+                                        Aguardando pagamento
+                                    <?php }?>
+                                </td>
+                                <td data-title="Voucher">
+                                    
+                                    <?php
+                                        if($status_id == 4 || $status_id == 1){?>
+                                        <?php echo $pedido->getId(); ?>
+                                    <?php } else {?>
+                                        Aguardando pagamento
+                                    <?php }?>
+                                    
+                                </td>
+                                
+                                <td data-title="Voucher">
+                                    <?php echo $item->getVoucher()->getCodigo(); ?> - <?php echo $item->getVoucher()->getTipo()->getNome(); ?> - <?php echo $item->getVoucher()->getEspecialidade()->getNome(); ?>
+                                </td>
+                                
+                                <td data-title="Status"> 
+                                    <?php
+                                    
+                                        if($status_id == 2 || $status_id == 3){?>
+                                        
+                                        <?php if($pedido->getPaymentUrl()) {?>
+                                            
+                                            <div class="text-right">
+                                                <a href="<?php echo $pedido->getPaymentUrl() ?>" target="_blank" class="btn btn-success"> <i class="fa fa-barcode"></i> Link para Pagamento </a>
+                                            </div>
+                                            
+                                        <?php }?>
+                                    
+                                    <?php } else {?>
+                                        
+                                        <?php echo $pedido->getStatus()->getNome(); ?>
+                                        
+                                        <?php
+                                        if($status_id == 4 || $status_id == 1){?>
+                                        
+                                            <div>
+                                                <a href="<?php echo $this->url('usuarios_front', array('action' => 'imprimir', 'id' => $item->getId() )) ?>" target="_blank" class="btn btn-default"> 
+                                                    <span class="glyphicon glyphicon-print"></span> Imprimir Voucher 
+                                                </a>
+                                               
+                                                <?php 
+                                                    $nfe = $this->em->getRepository("Loja\Entity\PedidoNota")->findOneBy(array('pedido' => $pedido->getId(), ));
+                                                    if($nfe)
+                                                
+                                                    {?>
+                                                     <br><br>
+                                                    <strong>Chave de acesso NFe:</strong>
+                                                    <?php echo $nfe->getXmlNfe(); ?>
+                                                    <br>
+                                                    Link de acesso: http://dec.fazenda.df.gov.br/
+                                                <?php }?>
+                                            </div>
+                                        <?php }?>
+                                        
+                                    <?php }?>
+                                </td>
+                                
+                                <td data-title="Valor"> 
+                                    <?php echo $item->getValorToPt(); ?>
+                                </td>
+                                
+                                <td data-title="Usado"> 
+                                    <?php
+                                        $status = $item->getUsado();
+                                        if ($status) {?>
+                                         <i class="fa fa-check-square text-navy"> Sim</i>     
+                                        <?php } else { ?>
+                                            <span class="label label-warning">Não </span>
+                                    <?php } ?>
+                                </td>
+
+                                <td data-title="Data de Cadastro"> 
+                                    <?php echo $item->getDataCadastro(); ?>
+                                </td>
+                                
+                            </tr>	
+                        <?php } ?>
+
+                    </tbody>
+                </table>
+
+            </div>				
+        </div>
+    </div>		
+</section>

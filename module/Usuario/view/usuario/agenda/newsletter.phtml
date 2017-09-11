@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda</title>
+
+        <style>
+            body{margin:0; padding: 0}
+            *{margin:0; padding: 0}
+        </style>
+
+    </head>
+    <body>
+
+        <div style="width: 100%;">
+            <a href="http://www.fecoagroleiteminas.com.br/">
+                <img src="http://fecoagroleiteminas.com.br/front/img/news.png?s=1">
+            </a>
+            <h2 style="background: #2E6C35; height: 20px; color: #fff; padding: 10px">Agenda</h2>
+        </div>
+        <br>
+        <h3 style="color:#002A5A"> Olá, <?php echo $this->usuario->getNome(); ?>. </h3>
+
+        <div>
+            <br>
+            <h4>
+                Confira o evento:
+            </h4>
+            <br>
+            <p>
+                <?php echo $this->agenda->getNome(); ?>
+
+            </p>
+            <br>
+            <?php
+                $texto = preg_replace('/<img([^>]*)src=["\']["\'\\/]?([^"\']*)["\']/', '<img\1src="' . _URL_SITE_ . '/\2"', $this->agenda->getTexto());
+                echo $texto;
+            ?>
+
+        </div>
+
+        <br>
+        Acesse nossa Intranet:
+        <br><br>
+        <a href="http://www.fecoagroleiteminas.com.br/usuarios/login/">www.fecoagroleiteminas.com.br</a>
+
+    </body>
+</html>

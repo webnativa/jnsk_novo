@@ -1,0 +1,49 @@
+<section class="title-section">
+<div class="container">
+
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>
+    <?php echo $this->titulo ?>
+</h1>
+</div>
+
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+<div class="row">
+
+<div class="col-md-4 sidebars">
+
+<aside>
+
+<ul class="list">
+<?php foreach ($this->institucionais as $item) { ?>
+    <li><a href="<?php echo $this->url('institucional_front', array('action' => 'pagina', 'id' => $item->getId())); ?>" <?php if($item->getId() == $this->id) {?> class="active" <?php }?>><?php echo $item->getNome() ?></a></li>
+<?php } ?>
+</ul>
+</aside>
+
+</div>
+
+<div class="col-md-8">
+
+<?php echo $this->pagina->getTexto(); ?>
+</div>
+</div>
+</div>
+
+</section>
+
+
+
+
+</div>

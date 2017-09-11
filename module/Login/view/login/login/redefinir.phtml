@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>CCGC</title>
+
+        <link href="<?php echo $this->basePath(); ?>/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo $this->basePath(); ?>/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+        <link href="<?php echo $this->basePath(); ?>/css/animate.css" rel="stylesheet">
+        <link href="<?php echo $this->basePath(); ?>/css/style.css" rel="stylesheet">
+
+    </head>
+
+    <body class="gray-bg">
+
+        <div class="loginColumns animated fadeInDown">
+            <div class="row">
+
+               
+                <div class="col-md-6">
+
+                  <section class="col-xs-12 col-sm-12 col-md-12 bg-cinza-internas">
+    <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12 titulo">
+            <h3>Redefinir  Senha</h3>
+        </div>
+
+        <div class="col-xs-12 col-sm-7 col-md-7">
+            <div class="fundo-branco">
+                <?php echo $this->message(); ?>    
+                <form name="cadastro" method="post" action="<?php echo $this->url('login', array('action' => 'redefinir')) ?>?token=<?php echo $this->token ?>" class="form-cadastro forms validacao_form">
+                    <?php echo $this->formElement($this->form->get('csrf')); ?>
+                    
+                    <div class="metade-">
+                        <label for="TxtEmail">Informe sua nova senha: <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('senha'));
+                        echo $this->formElementErrors()->render($this->form->get('senha'));
+                        ?>
+                    </div>
+                    
+                    <div class="metade-">
+                        <label for="TxtEmail">Confirme sua nova senha: <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('confirme_senha'));
+                        echo $this->formElementErrors()->render($this->form->get('confirme_senha'));
+                        ?>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Enviar</button>						
+                </form>
+            </div>
+        </div>
+    </div>		
+</section>
+                </div>
+            </div>
+            <hr/>
+
+        </div>
+
+    </body>
+
+</html>

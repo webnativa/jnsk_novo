@@ -1,0 +1,48 @@
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1>Redefinir senha
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+<section class="paddings">
+    <div class="container">
+        
+        <div class="col-xs-12 col-sm-12 col-md-10">
+
+            <div class="conteudo-institucional">
+
+               <?php echo $this->message(); ?>    
+                <form name="cadastro" method="post" action="<?php echo $this->url('usuarios_front', array('action' => 'redefinir')) ?>?token=<?php echo $this->token ?>" class="form-cadastro forms validacao_form">
+                    <?php echo $this->formElement($this->form->get('csrf')); ?>
+
+                    <div class="metade-">
+                        <label for="TxtEmail">Informe sua nova senha: <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('senha'));
+                        echo $this->formElementErrors()->render($this->form->get('senha'));
+                        ?>
+                    </div>
+                    
+                    <div class="metade-">
+                        <label for="TxtEmail">Confirme sua nova senha: <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('confirme_senha'));
+                        echo $this->formElementErrors()->render($this->form->get('confirme_senha'));
+                        ?>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Enviar</button>						
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>

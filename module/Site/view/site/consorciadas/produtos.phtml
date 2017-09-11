@@ -1,0 +1,55 @@
+
+<section class="title-section">
+<div class="container">
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1> Produtos
+</h1>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="paddings">
+<div class="container">
+
+
+<div class="works portfolioContainer">
+
+<?php foreach ($this->cooperadas as $cooperada) { ?>
+    <div class="col-md-3 text-center">
+        <?php if($cooperada->getImagem()) {?>
+            <a href='<?php echo $this->url('consorciadas_front', array('action' => 'detalhes', 'id' => $cooperada->getId())); ?>'>
+                <img src="/gestao/bloco-home/imagem?image=cooperativas/<?php echo $cooperada->getImagem(); ?>&x=150&y=150" alt="<?php echo $cooperada->getNome() ?>">
+                </a>
+        <?php }?>
+        <div class="info-work">
+       
+            <hr>
+            <a class="btn btn-primary" href="<?php echo $this->basePath(); ?>/uploads/cooperativas/<?php echo $cooperada->getCatalogo(); ?>" target="_blank">
+                Download do Catálogo
+            </a>
+
+        </div>
+        <hr>
+    </div>
+
+<?php } ?>
+
+
+
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</div>

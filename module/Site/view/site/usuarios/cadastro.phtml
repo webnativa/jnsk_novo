@@ -1,0 +1,222 @@
+
+
+<style>
+    .tipo_pessoa label{
+        margin-right: 25px;
+    }
+</style>
+
+<section class="col-xs-12 col-sm-12 col-md-12 bg-cinza-internas">
+    <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12 titulo">
+            <h3>Cadastro</h3>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-5 passos-cadastro">
+            <span>Cadastre-se no e-saúde e tenha muitas vantagens!</span>
+            <div class="col-xs-12 col-sm-12 text-center">
+                <img src="<?php echo $this->basePath(); ?>/front/imgs/icons/icone-passo-1.png" alt="" title="" class="img-responsive" />
+                <p>Encontre os melhores<br/> profissionais</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 text-center">
+                <img src="<?php echo $this->basePath(); ?>/front/imgs/icons/icone-passo-2.png" alt="" title="" class="img-responsive" />
+                <p>Passo a passo<br/> como utilizar seu voucher</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 text-center">
+                <img src="<?php echo $this->basePath(); ?>/front/imgs/icons/icone-passo-3.png" alt="" title="" class="img-responsive" />
+                <p>Adquira seu voucher</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-7 col-md-7">
+            <div class="fundo-branco">
+
+                <form name="cadastro" method="post" action="<?php echo $this->url('usuarios_front', array('action' => 'cadastro')) ?><?php echo $this->carrinho ?>" class="form-cadastro forms validacao_form">
+                    <?php
+                        echo $this->formElement($this->form->get('csrf'));
+                    ?>
+
+                    <legend>Dados</legend>
+                    
+                    <div class="tamanho tipo_pessoa">
+                        
+                        <?php
+                            echo $this->formRadio($this->form->get('tipo'));
+                            echo $this->formElementErrors()->render($this->form->get('tipo'));
+                        ?>
+                    </div>
+                    
+                    <div class="tamanho">
+                        <label for="TxtNome" class="optNome">Nome <span class="required">*</span></label>
+
+                        <?php
+                            echo $this->formInput($this->form->get('nome'));
+                            echo $this->formElementErrors()->render($this->form->get('nome'));
+                        ?>
+                    </div>
+                    
+                    <div class="tamanho">
+                        <label for="TxtNome" class="optData">Data de Nascimento <span class="required">*</span></label>
+
+                        <?php
+                            echo $this->formInput($this->form->get('nascimento'));
+                            echo $this->formElementErrors()->render($this->form->get('nascimento'));
+                        ?>
+                    </div>
+                    
+                    <div class="metade-left">
+                        <label for="TxtEmail">E-mail <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('email'));
+                            echo $this->formElementErrors()->render($this->form->get('email'));
+                        ?>
+                    </div>
+                    <div class="metade-right">
+                        <label for="TxtTelefone">Telefone <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('telefone'));
+                        echo $this->formElementErrors()->render($this->form->get('telefone'));
+                        ?>
+                    </div>
+                    <div class="metade-left">
+                        <label for="TxtCpf" class="txt_cpf">CPF - <span style="color: blue"> Será usado para login </span> <span class="required">*</span></label>
+                          <?php
+                            echo $this->formInput($this->form->get('cpf'));
+                            echo $this->formElementErrors()->render($this->form->get('cpf'));
+                            ?>  
+                    </div>
+                    
+                    <div class="metade-right" id="rg">
+                        <label for="TxtRG">RG <span class="required">*</span></label>
+                          <?php
+                            echo $this->formInput($this->form->get('rg'));
+                            echo $this->formElementErrors()->render($this->form->get('rg'));
+                         ?>
+                    </div>
+                    
+                    <div class="metade-right" id="inscricao" style="display: none">
+                        <label for="TxtRG">Inscrição Estadual <span class="required">*</span></label>
+                          <?php
+                            echo $this->formInput($this->form->get('inscricao'));
+                            echo $this->formElementErrors()->render($this->form->get('inscricao'));
+                         ?>
+                        
+                         Isento? <input type="checkbox" name="isento" value="1">
+                    </div>
+                    
+                    
+                    <div class="metade-left">
+                        <label for="TxtSenha">Senha <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('senha'));
+                            echo $this->formElementErrors()->render($this->form->get('senha'));
+                         ?>
+                    </div>
+                    <div class="metade-right">
+                        <label for="TxtConfSenha">Confirmar Senha <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('confirme_senha'));
+                            echo $this->formElementErrors()->render($this->form->get('confirme_senha'));
+                         ?>
+                    </div>
+
+                    <legend>Dados de endereço</legend>
+                    <div class="metade-left">
+                        <label for="TxtCep">CEP <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('cep'));
+                            echo $this->formElementErrors()->render($this->form->get('cep'));
+                         ?>
+                        <span class="lbuscacep"></span>
+                    </div>
+                    <div class="tamanho">
+                        <label for="TxtEndereco">Endereço <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('endereco'));
+                            echo $this->formElementErrors()->render($this->form->get('endereco'));
+                         ?>
+                    </div>
+                    <div class="metade-left">
+                        <label for="TxtNumero">Número <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('numero'));
+                            echo $this->formElementErrors()->render($this->form->get('numero'));
+                         ?>
+                    </div>
+                    <div class="metade-right">
+                        <label for="TxtComplemento">Complemento</label>
+                        <?php
+                            echo $this->formInput($this->form->get('complemento'));
+                            echo $this->formElementErrors()->render($this->form->get('complemento'));
+                         ?>
+                    </div>
+                    <div class="metade-left">
+                        <label for="CboEstado">Cidade <span class="required">*</span></label>
+                        
+                        <?php
+                            echo $this->formSelect($this->form->get('cidade'));
+                            echo $this->formElementErrors()->render($this->form->get('cidade'));
+                        ?>
+ 
+                    </div>
+                    <div class="metade-right">
+                        <label for="CboEstado">Bairro <span class="required">*</span></label>
+                        
+                        <?php
+                            echo $this->formSelect($this->form->get('bairro'));
+                            echo $this->formElementErrors()->render($this->form->get('bairro'));
+                        ?>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-success">Realizar cadastro</button>						
+                </form>
+            </div>
+        </div>
+    </div>		
+</section>
+
+<script>
+    $(document).ready(function(){
+        
+        $(".cpf_front").mask('999.999.999-99');
+        
+        $("input[name=tipo][value='1']").prop("checked",true);
+        
+        $("input[name=tipo][value='0']").change(function(){
+            
+            $('.txt_cpf').html('CNPJ - <span style="color: blue"> Será usado para login </span>');
+            $('.optNome').html('Razão Social <span class="required">*</span>');
+            
+            
+            $('#inscricao').show();
+            $('#rg').hide();
+            
+            $('#rg').attr('required', false);
+            $('#inscricao').attr('required', true);
+            
+            $('.cpf_front').data('mask').remove();
+            $('.cpf_front').unmask();
+            $(".cpf_front").mask('99.999.999/9999-99');
+            
+            $('.optData').html('Data de Fundação <span class="required">*</span>');
+            
+        });
+        
+        $("input[name=tipo][value='1']").change(function(){
+            
+            $('.txt_cpf').html('CPF - <span style="color: blue"> Será usado para login </span>');
+            
+            $('.optNome').html('Nome <span class="required">*</span>');
+            $('.optData').html('Data de Nascimento <span class="required">*</span>');
+            
+            $('#inscricao').hide();
+            $('#rg').show();
+            
+            $('#rg').attr('required', true);
+            $('#inscricao').attr('required', false);
+            
+            $('.cpf_front').data('mask').remove();
+            $('.cpf_front').unmask();
+            $(".cpf_front").mask('999.999.999-99');
+        });
+        
+    });
+</script>

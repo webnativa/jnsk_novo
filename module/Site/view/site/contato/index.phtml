@@ -1,0 +1,101 @@
+<section class="title-section">
+<div class="container">
+
+
+
+<div class="row title">
+
+<div class="col-md-9">
+<h1> Contato
+</h1>
+</div>
+
+
+</div>
+
+</div>
+</section>
+
+<section class="paddings">
+<div class="container">
+
+        <div class="col-xs-12 col-sm-3 col-md-3 conteudo-lateral">
+            <div class="blocos-laterais">
+                <h4>Atendimento</h4>
+                <p>07:30 às 17:30</p>
+                <p>Segunda à Sexta</p>
+            </div>
+            <div class="blocos-laterais">
+                <h4>Telefone</h4>
+                <p>(34) 3818-3777</p>
+            </div>
+            <div class="blocos-laterais">
+                <h4>Endereço</h4>
+                <p>
+                Av das Indústrias, 1080, Anexo II, Distrito Industrial II, 
+                    <br> Cep 38.706-730, 
+                    <br>
+                    Patos de Minas – MG
+                </p>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 conteudo">
+            <?php echo $this->message(); ?>
+            <form name="contato" method="post" action="<?php echo $this->url('contato', array('action' => 'index')) ?>" class="form-contato">
+
+                <?php
+                echo $this->formElement($this->form->get('csrf'));
+                ?>   
+
+
+                <div class="form-group">
+                <?php
+                echo $this->formInput($this->form->get('nome'));
+                echo $this->formElementErrors()->render($this->form->get('nome'));
+                ?>
+                </div>
+
+                <div class="form-group">
+
+                    <?php
+                    echo $this->formInput($this->form->get('cidade'));
+                    echo $this->formElementErrors()->render($this->form->get('cidade'));
+                    ?>
+
+                </div>
+               
+                <div class="form-group">
+
+                    <?php
+                    echo $this->formInput($this->form->get('email'));
+                    echo $this->formElementErrors()->render($this->form->get('email'));
+                    ?>
+
+                </div>
+                <div class="form-group">
+
+                    <?php
+                    echo $this->formInput($this->form->get('telefone'));
+                    echo $this->formElementErrors()->render($this->form->get('telefone'));
+                    ?>
+
+                </div>
+                <div class="form-group">
+
+                <?php
+                echo $this->formTextArea($this->form->get('mensagem'));
+                echo $this->formElementErrors()->render($this->form->get('mensagem'));
+                ?>
+                </div>
+                <button type="submit" class="btn btn-primary">enviar</button>
+            </form>
+
+
+        </div>
+        <div style="clear: both">
+            <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.7225128648306!2d-46.47878818546519!3d-18.631546687344397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ae61b367e4465b%3A0xdf48228bfd8eb5d0!2sAv.+das+Ind%C3%BAstrias%2C+1080+-+Distrito+Industrial+II%2C+Patos+de+Minas+-+MG%2C+38706-730!5e0!3m2!1spt-BR!2sbr!4v1502816078940" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>

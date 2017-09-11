@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda</title>
+
+        <style>
+            body{margin:0; padding: 0}
+            *{margin:0; padding: 0}
+        </style>
+
+    </head>
+    <body>
+
+        <div style="width: 100%;">
+            <a href="http://www.fecoagroleiteminas.com.br/">
+                <img src="http://fecoagroleiteminas.com.br/front/img/news.png?s=1">
+            </a>
+            <h2 style="background: #2E6C35; height: 20px; color: #fff; padding: 10px">Informativo FECOAGRO Leite Minas</h2>
+        </div>
+        <br>
+        
+        <h3 style="color:#ED282D"> Olá, <?php echo $this->usuario->getNome(); ?>, confira nossas novidades! </h3>
+        <br>
+        <div>
+           <table>
+           <?php foreach($this->noticias as $noticia) {?>
+                <tr>
+                <td style="padding:5px" valign="top">
+                        <a href="http://fecoagroleiteminas.com.br/noticias/detalhes/<?php echo $noticia->getId() ?>/">
+                            <img src="http://fecoagroleiteminas.com.br/gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem() ?>&x=200&y=200">
+                        </a>
+                    </td>
+                    <td style="padding:5px" valign="top">
+                        <a style="color:#88C425 !important; font-size:20px; text-decoration: none" href="http://fecoagroleiteminas.com.br/noticias/detalhes/<?php echo $noticia->getId() ?>/">
+                            <?php echo $noticia->getNome() ?>
+                            
+                        </a>
+                        
+                        <p>
+                        <br>
+                        <a style="color:#777; font-size:14px; text-decoration: none" href="http://fecoagroleiteminas.com.br/noticias/detalhes/<?php echo $noticia->getId() ?>/">
+                          
+                            <?php echo $noticia->getDescricao() ?>
+                        </a>
+                        </p>
+
+                    </td>
+                </tr>
+           <?php }?>
+           </table>
+
+        </div>
+
+        <br>
+        Acesse nosso site:
+        <br><br>
+        <a href="http://www.fecoagroleiteminas.com.br/">www.fecoagroleiteminas.com.br</a>
+
+    </body>
+</html>

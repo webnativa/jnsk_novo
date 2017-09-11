@@ -1,0 +1,174 @@
+
+
+<?php  
+
+$tipo_pessoa = $this->usuario->getTipo();
+
+?>
+
+<section class="col-xs-12 col-sm-12 col-md-12 bg-cinza-internas">
+    <div class="container">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 text-right status-user text-uppercase">
+            <p>
+                <a href="<?php echo $this->url('usuarios_front', array('action' => 'meus-dados')) ?>">Meus Vouchers</a>
+            </p>
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 titulo">
+            <h3>Editar Meus dados</h3>
+        </div>
+        
+        <div class="col-xs-12 col-sm-7 col-md-7">
+            <div class="fundo-branco">
+                <?php echo $this->message(); ?>
+                <form name="cadastro" method="post" action="<?php echo $this->url('usuarios_front', array('action' => 'editar')) ?>" class="form-cadastro forms validacao_form">
+                    
+                    <input type="hidden" name="tipo" value="<?php echo $this->usuario->getTipo() ?>" >
+                    
+                    <?php
+                        echo $this->formElement($this->form->get('csrf'));
+                    ?>
+
+                    <legend>Dados pessoais</legend>
+
+                    <div class="tamanho">
+                        
+
+                        <?php if($this->usuario->getTipo() == '1') {?>
+                               <label for="TxtNome">Nome <span class="required">*</span></label>
+                        <?php } else {?>
+                                <label for="TxtNome">Razão Social <span class="required">*</span></label>
+                        <?php } ?>
+                        
+                        
+                        <?php
+                        echo $this->formInput($this->form->get('nome'));
+                        echo $this->formElementErrors()->render($this->form->get('nome'));
+                        ?>
+                    </div>
+                    
+                    <div class="tamanho">
+                        
+
+                        
+                        <?php if($this->usuario->getTipo() == '1') {?>
+                               <label for="TxtNome">Data de Nascimento <span class="required">*</span></label>
+                        <?php } else {?>
+                                <label for="TxtNome">Data de Fundação <span class="required">*</span></label>
+                        <?php } ?>
+                        
+                        
+                        <?php
+                        echo $this->formInput($this->form->get('nascimento'));
+                        echo $this->formElementErrors()->render($this->form->get('nascimento'));
+                        ?>
+                    </div>
+                    
+                    
+                    
+                    <div class="metade-left">
+                        <label for="TxtEmail">E-mail <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('email'));
+                        echo $this->formElementErrors()->render($this->form->get('email'));
+                        ?>
+                    </div>
+                    <div class="metade-right">
+                        <label for="TxtTelefone">Telefone <span class="required">*</span></label>
+                        <?php
+                        echo $this->formInput($this->form->get('telefone'));
+                        echo $this->formElementErrors()->render($this->form->get('telefone'));
+                        ?>
+                    </div>
+                    <div class="metade-left">
+                        <label for="TxtCpf">CPF <span class="required">*</span></label>
+                          <?php
+                            echo $this->formInput($this->form->get('cpf'));
+                            echo $this->formElementErrors()->render($this->form->get('cpf'));
+                            ?>
+                    </div>
+                    
+                    
+                    <div class="metade-right">
+                        <label for="TxtRG">RG </label>
+                          <?php
+                            echo $this->formInput($this->form->get('rg'));
+                            echo $this->formElementErrors()->render($this->form->get('rg'));
+                         ?>
+                    </div>
+                    
+                    <div class="metade-left">
+                        <label for="TxtRG">Inscrição Estadual </label>
+                          <?php
+                            echo $this->formInput($this->form->get('inscricao'));
+                            echo $this->formElementErrors()->render($this->form->get('inscricao'));
+                         ?>
+                    </div>
+                    
+                    <legend>Dados de endereço</legend>
+                    <div class="metade-left">
+                        <label for="TxtCep">CEP <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('cep'));
+                            echo $this->formElementErrors()->render($this->form->get('cep'));
+                         ?>
+                        <span class="lbuscacep"></span>
+                    </div>
+                    <div class="tamanho">
+                        <label for="TxtEndereco">Endereço <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('endereco'));
+                            echo $this->formElementErrors()->render($this->form->get('endereco'));
+                         ?>
+                    </div>
+                    <div class="metade-left">
+                        <label for="TxtNumero">Número <span class="required">*</span></label>
+                        <?php
+                            echo $this->formInput($this->form->get('numero'));
+                            echo $this->formElementErrors()->render($this->form->get('numero'));
+                         ?>
+                    </div>
+                    <div class="metade-right">
+                        <label for="TxtComplemento">Complemento</label>
+                        <?php
+                            echo $this->formInput($this->form->get('complemento'));
+                            echo $this->formElementErrors()->render($this->form->get('complemento'));
+                         ?>
+                    </div>
+                    <div class="metade-left">
+                        <label for="CboEstado">Cidade</label>
+                        
+                        <?php
+                            echo $this->formSelect($this->form->get('cidade'));
+                            echo $this->formElementErrors()->render($this->form->get('cidade'));
+                        ?>
+ 
+                    </div>
+                    <div class="metade-right">
+                        <label for="CboEstado">Bairro</label>
+                        
+                        <?php
+                            echo $this->formSelect($this->form->get('bairro'));
+                            echo $this->formElementErrors()->render($this->form->get('bairro'));
+                        ?>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-success">Atualizar</button>						
+                </form>
+            </div>
+        </div>
+    </div>		
+</section>
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+        <?php if(!$this->usuario->getTipo()) {?>
+                $(".cpf_front").mask('99.999.999/9999-99');
+        <?php } else {?>
+                $(".cpf_front").mask('999.999.999-99');
+        <?php } ?>
+    });
+    
+</script>
