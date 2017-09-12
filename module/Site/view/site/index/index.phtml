@@ -68,28 +68,31 @@
             <div class="row blue-bg">
                 <div class="container">
                     <div class="services clearfix">
+
+
+
+
+
+                                <?php foreach($this->noticias as $noticia) {?>
+                                    <!-- Item testimonial --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="col-service col-md-6 col-sm-6 col-xs-12">
-                            <div class="row row-height yellow-bg">
-                                <div class="service-img cover-fix col-height col-md-6 col-sm-6 col-xs-12 clearfix" style="background-image: url('images/jaime_home.png');">
-                                    <div class="mask">
-                                        <a href="http://www.jonosake.com.br/workshop-jaime-aroxa">
-                                            <div class="mask-btn">
-                                              <i class="fa fa-eye" aria-hidden="true"></i>
-                                              <span>Saiba mais</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="service-info col-height col-md-6 col-sm-6 col-xs-12 clearfix">
-                                    <h2><span>Workshop</span> Jaime Arôxa</h2>
-                                    <h4>"Musicalidade e Conexão na Dança de Salão!"<br><br></h4>
-                                    <a href="http://www.jonosake.com.br/workshop-jaime-aroxa" class="transparent-btn happykiddo-btn">SAIBA MAIS</a>
-                                </div>
-                            </div><br><br><br><br>
-                        </div>
-                       <div class="col-service col-md-6 col-sm-6 col-xs-12">
                             <div class="row row-height blue-bg2">
-                                <div class="service-img cover-fix col-height col-md-6 col-sm-6 col-xs-12 clearfix" style="background-image: url('images/comvoce.png');">
+                                <div class="service-img cover-fix col-height col-md-6 col-sm-6 col-xs-12 clearfix" style="background-image: url('gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem(); ?>&x=380&y=470');">
                                     <div class="mask">
                                         <a href="http://www.jonosake.com.br/nova-tabela">
                                             <div class="mask-btn">
@@ -100,28 +103,16 @@
                                     </div>
                                 </div>
                                 <div class="service-info col-height col-md-6 col-sm-6 col-xs-12 clearfix">
-                                    <h2><span>Nova tabela</span> de preços</h2>
-                                    <h4>Jonosake, com você em todos os momentos!<br><br></h4>
+                                    <h2><span><?php echo $noticia->getNome() ?></h2>
+                                    <h4><?php echo $noticia->getDescricao() ?><br><br></h4>
                                     <a href="http://www.jonosake.com.br/nova-tabela" class="transparent-btn happykiddo-btn">SAIBA MAIS</a>
                                 </div>
                             </div><br><br><br><br>
                         </div>
  
                         
+<?php }?>
 
-
-<!--                     <div class="cta blue-bg clearfix">
-                        <div class="container clearfix">
-                            <div class="row-height">
-                                <div class="col-md-12 col-sm-12 col-xs-12 col-height text-center">
-                                    <h1><i class="fa fa-instagram"></i> #Jonosake</h1>
-
-                                    <h3>Use a HashTag <span>#Jonosake</span> e compartilhe seus momentos no Sítio Jonosake!</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                -->                    <!-- END CTA -->
 
 
 </div>
@@ -130,8 +121,8 @@
 
 
         <!-- box-action -->
-        <section class="box-action">
-            <form method="post" action="<?php echo $this->url('noticias_front', array('action' => 'news-letter')) ?>">
+        <!-- <section class="box-action">
+            <form method="post" action="< ?php echo $this->url('noticias_front', array('action' => 'news-letter')) ?>">
             <div class="container">
                 <div class="title">
                     <p class="lead">Receba nossas noticias por e-mail!</p>
@@ -140,68 +131,19 @@
                     <input type="text" required name="nome" placeholder="Nome">
                     <input type="email" required name="email" placeholder="E-mail">
                     <input type="submit" class="enviar" name="Enviar" value="Enviar">
+
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </div>
             </div>
             </form>
 
-        </section>
+        </section> -->
         <!-- End box-action-->
 
 
         
 
-        <!-- post-testimonials -->
-        <section class="content_info">
-            <div class="paddings post-testimonials">
-                <div class="container">
-                   <div class="row">  
-                        <!-- Testimonial --> 
-                        <div class="col-md-12">
-                            <h3>Últimas notícias</h3>
-                            <!-- Box -->
-                            <ul class="box">
-                                
-                                <?php foreach($this->noticias as $noticia) {?>
-                                    <!-- Item testimonial --> 
-                                    <li class="row">
-                                        <!-- Date --> 
-                                        <div class="col-md-3">
-                                            <div class="photo">
-                                                
-                                                <?php if($noticia->getImagem()) {?>
-                                                        <a href="<?php echo $this->url('noticias_front', array('action' => 'detalhes', 'id' => $noticia->getId())); ?>">
-                                                            <img src="/gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem(); ?>&x=380&y=470" alt="<?php echo $noticia->getNome() ?>">
-                                                        </a>
-                                                <?php }?>
-                                            </div>
-                                        </div>
-                                        <!-- End Date --> 
-                                        <div class="col-md-9">
-                                            <div class="name">
-                                                <h4>
-                                                    <?php echo $noticia->getNome() ?>
-                                                </h4>                                        
-                                            </div>
-                                            <p>
-                                                <?php echo $noticia->getDescricao() ?>
-                                            </p>
-                                        </div>
-                                    </li>
-                                <?php }?>
-                              
-                            </ul>
-                            <!-- End Box -->
 
-                            
-
-                        </div>
-
-                        <!-- End Testimonial --> 
-                   </div>                
-                </div>
-            </div>
-        </section>
-        <!-- End post-testimonials -->
 
 
 
