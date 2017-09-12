@@ -8,7 +8,7 @@ class Email {
     private $sendgrid;
 
     public function __construct() {
-        $this->sendgrid = new \SendGrid('chicosilva', 'ledro5478wer');
+        //$this->sendgrid = new \SendGrid('chicosilva', 'ledro5478wer');
         $this->email = new \SendGrid\Email();
     }
 
@@ -20,7 +20,7 @@ class Email {
 
         $this->email
                 ->addTo($to)
-                ->setFromName('FECOAGRO Leite Minas')
+                ->setFromName('JONOSAKE')
                 ->setFrom($from)
                 ->setSubject($subject)
                 ->setText($html)

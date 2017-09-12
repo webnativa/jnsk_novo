@@ -24,12 +24,12 @@
                                 </div> -->
 
                                 <div class="container clearfix hero-container">
-                                    <div class="hero col-md-5 col-sm-4 col-xs-12">
-                                        <div class="hgroup">
+                                    <div class="hero col-md-12 col-sm-12 col-xs-12">
+                                        <!-- <div class="hgroup">
                                             <h1 class="animated fadeInDown scroll-time5">
-                                                <?php echo $banner->getNome();  ?>
+                                                < ?php echo $banner->getNome();  ?>
                                             </h1>
-                                        </div>
+                                        </div> -->
 
                              <?php
                                 
@@ -37,7 +37,7 @@
                                 if ($link) {?>
                                     <div class="btn-box animated fadeIn scroll-time9 clearfix">
                                         <a href="<?php echo $banner->getLink(); ?>" class="transparent-btn happykiddo-btn">
-                                        SAIBA MAIS
+                                        <?php echo $banner->getNome();  ?>
                                         </a>
                                     </div>
                             <?php } ?>
@@ -221,12 +221,7 @@
                     <div class="container">
                         <div class="row-height">
                             <div class="steps-info col-height col-md-12">
-                                <h1>O SEU DIA É MAIS FELIZ AQUI!</h1>
-
-
-
-
-
+                                <!-- <h1>O SEU DIA É MAIS FELIZ AQUI!</h1> -->
                             </div>
                         </div>
                     </div>
