@@ -76,42 +76,26 @@
                                 <?php foreach($this->noticias as $noticia) {?>
                                     <!-- Item testimonial --> 
 
+                                        <div class="col-service col-md-4 col-sm-6 col-xs-12">
+                                                <div class="col-md-12  bg-none">
+                                                        <a href="http://www.jonosake.com.br/nova-tabela">
+                                                            <img src="gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem(); ?>&x=800&y=600" class="img-responsive">
+                                                        </a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <div class="col-service col-md-6 col-sm-6 col-xs-12">
-                            <div class="row row-height blue-bg2">
-                                <div class="service-img cover-fix col-height col-md-6 col-sm-6 col-xs-12 clearfix" style="background-image: url('gestao/bloco-home/imagem?image=noticias/<?php echo $noticia->getImagem(); ?>&x=380&y=470');">
-                                    <div class="mask">
-                                        <a href="http://www.jonosake.com.br/nova-tabela">
-                                            <div class="mask-btn">
-                                              <i class="fa fa-eye" aria-hidden="true"></i>
-                                              <span>Saiba mais</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="service-info col-height col-md-6 col-sm-6 col-xs-12 clearfix">
-                                    <h2><span><?php echo $noticia->getNome() ?></h2>
-                                    <h4><?php echo $noticia->getDescricao() ?><br><br></h4>
-                                    <a href="http://www.jonosake.com.br/nova-tabela" class="transparent-btn happykiddo-btn">SAIBA MAIS</a>
-                                </div>
-                            </div><br><br><br><br>
-                        </div>
+                                                    <h3><span><?php echo $noticia->getNome() ?></h2>
+                                                    <h6><?php echo $noticia->getDescricao() ?><br><br></h4>
+                                                </div>
+                                        </div>
  
                         
-<?php }?>
+                                <?php }?>
+                                    <div class="btn-box animated fadeIn scroll-time9 clearfix">
+                                        <a href="#" class="transparent-btn happykiddo-btn">
+                                        VEJA MAIS
+                                        </a>
+                                        <br><br><br><br><br><br>
+                                    </div>
+
 
 
 

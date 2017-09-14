@@ -254,6 +254,12 @@ h2.section-heading span {
 }
 .blue-bg2 {
     background-color: #155b9b !important;
+    padding-top:10px;
+}
+.bg-none {
+    background-color:#16c8e5;
+    padding:5px;
+    color: #ffffff;
 }
 
 .red {

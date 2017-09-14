@@ -16,6 +16,10 @@ return array(
             'Site\Controller\VideosController' => 'Site\Controller\VideosController',
             'Site\Controller\EquipeController' => 'Site\Controller\EquipeController',
             'Site\Controller\EventosController' => 'Site\Controller\EventosController',
+            'Site\Controller\trintaAnosController' => 'Site\Controller\trintaAnosController',
+            'Site\Controller\proRegularController' => 'Site\Controller\proRegularController',
+            'Site\Controller\proEscolasController' => 'Site\Controller\proEscolasController',
+            'Site\Controller\historiaController' => 'Site\Controller\historiaController',
         ]
     ],
     'router' => array(
@@ -197,6 +201,71 @@ return array(
                     ),
                 ),
             ),
+
+            'trintaAnos' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/trintaAnos',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Site\Controller\trintaAnosController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+
+            'proRegular' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/excursoes-jonosake',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Site\Controller\proRegularController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+
+            'proEscolas' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/excursoes-escolares-jonosake',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Site\Controller\proEscolasController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+
+            'historia' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/historia-jonosake',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Site\Controller\historiaController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+
+
+
+
+
         )
     ),
     
